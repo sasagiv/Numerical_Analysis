@@ -1,0 +1,14 @@
+import csv
+from collections import defaultdict
+#import csv file from desktop
+with open(r'C:\Users\sagiv.levi\Downloads\RR output - Skyminyr_master_PparG5D.csv', 'r',encoding = 'utf8') as f:
+    reader = csv.reader(f)
+    your_list = list(reader)
+#get first row in csv file
+first_row = your_list[0]
+max_len = defaultdict(int)
+for row in your_list:
+  for i in range(len(first_row)):
+    max_len[first_row[i]] = max(max_len[first_row[i]], len(row[i]))
+
+print(max_len)
